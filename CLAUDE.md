@@ -22,6 +22,8 @@ hatch fmt                       # autofix both
 hatch run yt-dlp -v URL         # run from source with -Werror -Xdev
 make lazy-extractors            # regenerate yt_dlp/extractor/lazy_extractors.py after adding or renaming an extractor
 make README.md                  # regenerate the options section of README.md from yt_dlp/options.py
+                                # make skips it if README.md is newer than options.py: touch yt_dlp/options.py first.
+                                # It always emits one stray trailing-space hunk on the --date line. Drop that hunk
 ```
 
 Tests always run with `-Werror`, so any DeprecationWarning is a failure. Known local failures on macOS, not real
